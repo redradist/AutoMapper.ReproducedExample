@@ -17,7 +17,8 @@ namespace AutoMapper.ReproducedExample
                         entityProduct.StoreId = entity.Id;
                         entityProduct.Store = entity;
                     }
-                });
+                })
+                .PreserveReferences();
             CreateMap<StoreModel, StoreProductEntity>()
                 .ForMember(entity => entity.StoreId, opt => opt.MapFrom(model => model.Id))
                 .ForMember(entity => entity.Store, opt => opt.MapFrom(model => model))
@@ -34,13 +35,13 @@ namespace AutoMapper.ReproducedExample
                         entityStore.ProductId = entity.Id;
                         entityStore.Product = entity;
                     }
-                });
+                })
+                .PreserveReferences();
             CreateMap<ProductModel, StoreProductEntity>()
                 .ForMember(entity => entity.StoreId, opt => opt.Ignore())
                 .ForMember(entity => entity.Store, opt => opt.Ignore())
                 .ForMember(entity => entity.ProductId, opt => opt.MapFrom(model => model.Id))
                 .ForMember(entity => entity.Product, opt => opt.MapFrom(model => model));
-
         }
     }
 }

@@ -1,3 +1,5 @@
+using System;
+
 namespace AutoMapper.ReproducedExample.Entities
 {
     public class StoreProductEntity
